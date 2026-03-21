@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Camera2d : Camera2D
+public partial class Camera : Camera2D
 {
     Tween currTween;
 	// Called when the node enters the scene tree for the first time.

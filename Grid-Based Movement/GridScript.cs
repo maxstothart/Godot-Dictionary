@@ -1,5 +1,4 @@
 using Godot;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +59,10 @@ public partial class GridScript : Node2D
         //GD.Print($"Grid Pos - X: {Pos.Item1}, Y: {Pos.Item2}");
         return Pos;
     }
+
+    public static Vector2 toVec((int, int) val) { return new(val.Item1, val.Item2); }
+    public static Vector2I toIntVec(Vector2 input) { return new((int)input.X, (int)input.Y); }
+
 	public struct Grid
 	{
 		public List<List<Vector2>> Points = new();
@@ -88,7 +91,7 @@ public partial class GridScript : Node2D
         public Grid(int size, Vector2 WSize)
         {
             gridSize = size;
-            gridDimensions = (((int)WSize.X+1), ((int)WSize.Y+1));
+            gridDimensions = (((int)WSize.X+2), ((int)WSize.Y+2));
 
             for (int y = 0; y < gridDimensions.Item2; y++)
             {
@@ -137,8 +140,8 @@ public partial class GridScript : Node2D
             x = clamp(x, gridDimensions.Item1-2) * gridSize + gridSize /2;
             y = clamp(y, gridDimensions.Item2-2) * gridSize + gridSize / 2;
 
-            GD.Print(gridDimensions);
-            GD.Print((x/gridSize, y/gridSize));
+            //GD.Print(gridDimensions);
+            //GD.Print((x/gridSize, y/gridSize));
 
             return (x, y);
         }
