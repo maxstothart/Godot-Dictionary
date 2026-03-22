@@ -8,8 +8,7 @@ public partial class TileMap : TileMapLayer
 	public Vector2 TileCoords;
 	[Export]
 	public bool Touching;
-
-
+	
 	public Grid grid;
 
 	// Called when the node enters the scene tree for the first time.
